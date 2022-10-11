@@ -1,0 +1,29 @@
+ // Techatronic.com  
+ int val = 0 ;  
+ void setup()  
+ {  
+  Serial.begin(9600);  
+  pinMode(4,INPUT);  // IR sensor output pin connected  
+  pinMode(8,OUTPUT); // Green led pin  
+  pinMode(9,OUTPUT); // Red led pin  
+  pinMode(10,OUTPUT); // Relay  
+  pinMode(10,HIGH);  // Relay  
+ }  
+ void loop()   
+ {  
+  val = digitalRead(4); // pir sensor output pin connected  
+  Serial.println(val); // see the value in serial monitor in Arduino IDE  
+  delay(100);  
+ if(val == 1 )  
+ {  
+  digitalWrite(8,HIGH);  // Green led on  
+  digitalWrite(9,LOW);  // Red led off  
+  digitalWrite(10,HIGH); // Relay Module  
+ }  
+ else  
+ {  
+  digitalWrite(8,LOW);  // Green led off  
+  digitalWrite(9,HIGH); // Red led on  
+  digitalWrite(10,LOW); // Relay Module  
+ }  
+ }  
